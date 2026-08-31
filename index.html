@@ -1,0 +1,1593 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stayvines | The quiet power behind exceptional stays</title>
+<meta name="description" content="Stayvines is an AI concierge that answers guest messages and captures bookings on WhatsApp around the clock, then hands the conversation to your team the moment a person is needed. Built for short-let operators in Lagos and Abuja." />
+<meta property="og:title" content="Stayvines | The quiet power behind exceptional stays" />
+<meta property="og:description" content="Your team, plus an AI that never sleeps. Guest chat and booking capture on WhatsApp for short-let and serviced-apartment operators in Lagos and Abuja." />
+<meta property="og:type" content="website" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,300;1,6..72,400&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+<style>
+/* ============================================================
+   Warm Editorial design-system token contract (verbatim :root)
+   ============================================================ */
+:root {
+  --bg: #fbf6ee;
+  --surface: #fffdf8;
+  --surface-warm: #f1e3cf;
+  --fg: #201914;
+  --fg-2: #4c4037;
+  --muted: #7a6d63;
+  --meta: #9b5b32;
+  --border: #ded2c3;
+  --border-soft: #eee4d7;
+  --accent: #9b5b32;
+  --accent-on: #ffffff;
+  --accent-hover: color-mix(in oklab, var(--accent), black 8%);
+  --accent-active: color-mix(in oklab, var(--accent), black 14%);
+  --success: #4f8a4f;
+  --warn: #c9822f;
+  --danger: #b33a3a;
+  --font-display: Georgia, "Times New Roman", serif;
+  --font-body: Inter, system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, Menlo, monospace;
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 17px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+  --text-2xl: 42px;
+  --text-3xl: 64px;
+  --text-4xl: 88px;
+  --leading-body: 1.62;
+  --leading-tight: 1;
+  --tracking-display: -0.025em;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --section-y-desktop: 112px;
+  --section-y-tablet: 80px;
+  --section-y-phone: 56px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 9999px;
+  --elev-flat: none;
+  --elev-ring: 0 0 0 1px var(--border);
+  --elev-raised: 0 20px 52px rgba(32, 25, 20, 0.12);
+  --focus-ring: 0 0 0 4px rgba(155, 91, 50, 0.24);
+  --motion-fast: 150ms;
+  --motion-base: 240ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --container-max: 1180px;
+  --container-gutter-desktop: 36px;
+  --container-gutter-tablet: 24px;
+  --container-gutter-phone: 16px;
+}
+
+/* Webfont bindings layered on top of the token contract.
+   Newsreader carries the display voice; Instrument Sans carries body. */
+:root {
+  --face-display: "Newsreader", Georgia, "Times New Roman", serif;
+  --face-body: "Instrument Sans", system-ui, -apple-system, sans-serif;
+  --section-y: var(--section-y-desktop);
+  --gutter: var(--container-gutter-desktop);
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--face-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+h1, h2, h3, h4 { font-family: var(--face-display); font-weight: 400; margin: 0; }
+p { margin: 0; }
+ul { margin: 0; padding: 0; list-style: none; }
+
+:where(a, button, summary, input, [tabindex]):focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+  border-radius: var(--radius-sm);
+}
+
+/* ---------- layout primitives ---------- */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+section { padding-block: var(--section-y); }
+
+.display-1 {
+  font-family: var(--face-display);
+  font-size: clamp(40px, 5.4vw, 62px);
+  line-height: 1.08;
+  letter-spacing: var(--tracking-display);
+  font-weight: 400;
+}
+.display-2 {
+  font-family: var(--face-display);
+  font-size: clamp(32px, 4.2vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.022em;
+  font-weight: 400;
+}
+.display-3 {
+  font-family: var(--face-display);
+  font-size: clamp(23px, 2.1vw, 29px);
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  font-weight: 400;
+}
+.lead {
+  font-size: clamp(18px, 1.5vw, var(--text-lg));
+  line-height: 1.58;
+  color: var(--fg-2);
+  max-width: 54ch;
+}
+.ital { font-style: italic; font-weight: 300; line-height: 1.14; padding-bottom: 0.06em; }
+
+.eyebrow {
+  font-family: var(--face-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--meta);
+  margin: 0 0 var(--space-5);
+}
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: 48px;
+  padding: 13px var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid transparent;
+  font-family: var(--face-body);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color var(--motion-fast) var(--ease-standard),
+              border-color var(--motion-fast) var(--ease-standard),
+              transform var(--motion-fast) var(--ease-standard),
+              box-shadow var(--motion-fast) var(--ease-standard);
+}
+.btn-primary { background: var(--accent); color: var(--accent-on); }
+.btn-primary:hover { background: var(--accent-hover); color: var(--accent-on); }
+.btn-primary:active { background: var(--accent-active); color: var(--accent-on); transform: translateY(1px); }
+
+.btn-secondary {
+  background: transparent;
+  color: var(--fg);
+  border-color: var(--border);
+}
+.btn-secondary:hover { background: var(--surface); color: var(--fg); border-color: var(--fg-2); }
+.btn-secondary:active { background: var(--surface-warm); color: var(--fg); transform: translateY(1px); }
+
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--fg);
+  text-decoration: none;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 3px;
+  transition: border-color var(--motion-fast) var(--ease-standard), gap var(--motion-fast) var(--ease-standard);
+}
+.btn-link:hover { border-color: var(--fg); gap: 12px; }
+.btn-link svg { flex: none; }
+
+/* ---------- nav ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: color-mix(in oklab, var(--bg), transparent 12%);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--motion-base) var(--ease-standard),
+              background-color var(--motion-base) var(--ease-standard);
+}
+.nav[data-stuck="true"] {
+  border-bottom-color: var(--border-soft);
+  background: color-mix(in oklab, var(--bg), transparent 4%);
+}
+.nav-inner {
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-8);
+}
+.wordmark {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 9px;
+  font-family: var(--face-display);
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--fg);
+}
+.wordmark .mark { flex: none; align-self: center; }
+.nav-links { display: flex; align-items: center; gap: var(--space-8); }
+.nav-links a {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--fg-2);
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid transparent;
+  transition: color var(--motion-fast) var(--ease-standard), border-color var(--motion-fast) var(--ease-standard);
+}
+.nav-links a:hover { color: var(--fg); border-bottom-color: var(--fg); }
+.nav-cta { display: flex; align-items: center; gap: var(--space-5); }
+.nav-cta .btn { min-height: 44px; padding: 10px 20px; font-size: 14px; }
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  min-height: 44px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.nav-toggle:hover { background: var(--surface); border-color: var(--fg-2); }
+.nav-panel { display: none; }
+
+/* ---------- hero ---------- */
+.hero {
+  padding-top: 68px;
+  padding-bottom: calc(var(--section-y) - 8px);
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10% auto -20%;
+  height: 90%;
+  background: radial-gradient(60% 55% at 30% 30%, rgba(241, 227, 207, 0.85), transparent 72%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero .container { position: relative; z-index: 1; }
+.hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+  gap: clamp(40px, 5vw, 76px);
+  align-items: center;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-pill);
+  padding: 7px 15px 7px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--fg-2);
+  box-shadow: var(--elev-flat);
+  margin-bottom: var(--space-8);
+}
+.badge .pulse {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  flex: none;
+}
+.badge .pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  border: 1px solid var(--success);
+  opacity: 0;
+  /* Capped rather than infinite: ambient motion should not outlive the 5s
+     WCAG 2.2.2 window without a pause control. */
+  animation: halo 2.8s var(--ease-standard) 3;
+}
+@keyframes halo {
+  0%   { opacity: 0.55; transform: scale(0.6); }
+  70%  { opacity: 0; transform: scale(1.35); }
+  100% { opacity: 0; transform: scale(1.35); }
+}
+.hero h1 { max-width: 15ch; }
+.hero .lead { margin-top: var(--space-6); max-width: 46ch; }
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+
+/* ---------- WhatsApp thread visual ---------- */
+.thread-stage { position: relative; }
+.thread-photo {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--elev-ring);
+}
+.thread-photo img { width: 100%; height: 100%; object-fit: cover; }
+.thread-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(190deg, rgba(251, 246, 238, 0.18), rgba(32, 25, 20, 0.24));
+}
+.phone {
+  position: relative;
+  width: min(360px, 100%);
+  margin: 44px auto;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--elev-raised);
+  overflow: hidden;
+}
+.phone-bar {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 15px var(--space-5);
+  border-bottom: 1px solid var(--border-soft);
+  background: var(--surface);
+}
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--surface-warm);
+  display: grid;
+  place-items: center;
+  font-family: var(--face-display);
+  font-size: 15px;
+  color: var(--fg);
+}
+.phone-bar .who { min-width: 0; }
+.phone-bar .who b { display: block; font-size: 14px; font-weight: 600; letter-spacing: 0.005em; }
+.phone-bar .who span { display: block; font-size: 11.5px; color: var(--muted); }
+.phone-body {
+  padding: var(--space-5) var(--space-5) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  min-height: 372px;
+}
+.bubble {
+  max-width: 84%;
+  padding: 11px 14px;
+  font-size: 14.5px;
+  line-height: 1.5;
+  border-radius: 16px;
+  opacity: 0;
+  transform: translateY(9px);
+}
+.bubble.in { animation: bubbleIn 420ms var(--ease-standard) forwards; }
+@keyframes bubbleIn { to { opacity: 1; transform: translateY(0); } }
+.bubble.guest {
+  align-self: flex-start;
+  background: var(--bg);
+  border: 1px solid var(--border-soft);
+  border-bottom-left-radius: 5px;
+  color: var(--fg);
+}
+.bubble.ai {
+  align-self: flex-end;
+  background: color-mix(in oklab, var(--surface-warm), var(--bg) 30%);
+  border: 1px solid var(--border);
+  border-bottom-right-radius: 5px;
+  color: var(--fg);
+}
+.bubble .stamp {
+  display: block;
+  margin-top: 5px;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.bubble.ai .stamp { text-align: right; }
+.handoff {
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3px;
+  padding: 7px 13px;
+  border-radius: var(--radius-pill);
+  background: var(--bg);
+  border: 1px dashed var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--fg-2);
+  opacity: 0;
+  transform: translateY(9px);
+}
+.handoff.in { animation: bubbleIn 420ms var(--ease-standard) forwards; }
+.handoff .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); flex: none; }
+.typing { display: inline-flex; gap: 4px; align-items: center; height: 12px; }
+.typing i {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--muted);
+  /* 6 cycles is enough to read as "typing" and stops well short of an
+     indefinite loop with no pause affordance. */
+  animation: typing 1.15s ease-in-out 6;
+}
+.typing i:nth-child(2) { animation-delay: 0.16s; }
+.typing i:nth-child(3) { animation-delay: 0.32s; }
+@keyframes typing {
+  0%, 100% { opacity: 0.28; transform: translateY(0); }
+  50%      { opacity: 1; transform: translateY(-3px); }
+}
+.thread-caption {
+  position: relative;
+  margin-top: var(--space-5);
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- operator strip (under hero) ---------- */
+.strip { border-top: 1px solid var(--border-soft); border-bottom: 1px solid var(--border-soft); padding-block: 30px; }
+.strip-inner { display: flex; align-items: center; gap: clamp(20px, 4vw, 56px); flex-wrap: wrap; justify-content: space-between; }
+.strip-label { font-size: 13px; color: var(--muted); flex: none; }
+.strip-logos { display: flex; align-items: center; gap: clamp(20px, 3.4vw, 46px); flex-wrap: wrap; }
+.strip-logos li { display: flex; align-items: center; }
+.strip-logos svg { height: 26px; width: auto; color: var(--fg-2); opacity: 0.72; transition: opacity var(--motion-fast) var(--ease-standard); }
+.strip-logos li:hover svg { opacity: 1; }
+
+/* ---------- how it works (spine) ---------- */
+.steps { margin-top: 60px; display: grid; gap: 0; }
+.step {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(24px, 3.4vw, 52px);
+  align-items: start;
+  padding-block: 40px;
+  border-top: 1px solid var(--border-soft);
+}
+.step:last-child { border-bottom: 1px solid var(--border-soft); }
+.step-num {
+  font-family: var(--face-display);
+  font-size: 46px;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--border);
+  font-weight: 400;
+}
+.step h3 { margin-bottom: var(--space-4); }
+.step p { color: var(--fg-2); max-width: 44ch; }
+.step-aside {
+  font-size: var(--text-sm);
+  color: var(--muted);
+  padding-left: clamp(0px, 1.6vw, 22px);
+  border-left: 1px solid var(--border-soft);
+}
+.step-aside b { display: block; font-weight: 600; color: var(--fg-2); margin-bottom: 5px; font-size: 13px; letter-spacing: 0.01em; }
+
+/* ---------- features bento ---------- */
+.bento {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: var(--space-6);
+}
+.tile {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: clamp(24px, 2.4vw, 34px);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  transition: box-shadow var(--motion-base) var(--ease-standard),
+              transform var(--motion-base) var(--ease-standard),
+              border-color var(--motion-base) var(--ease-standard);
+}
+.tile:hover { box-shadow: var(--elev-raised); transform: translateY(-3px); border-color: var(--border); }
+.tile h3 { font-size: 25px; letter-spacing: -0.012em; }
+.tile p { color: var(--fg-2); font-size: 15.5px; }
+.tile .ico { color: var(--fg-2); opacity: 0.78; }
+.tile-wide { grid-column: span 4; }
+.tile-narrow { grid-column: span 2; }
+.tile-mid { grid-column: span 4; }
+
+.tile-photo {
+  grid-column: span 2;
+  position: relative;
+  padding: 0;
+  overflow: hidden;
+  min-height: 300px;
+  border-color: var(--border);
+}
+.tile-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.tile-photo .plate {
+  position: absolute;
+  inset: auto 16px 16px 16px;
+  background: color-mix(in oklab, var(--surface), transparent 8%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  box-shadow: 0 8px 24px rgba(32, 25, 20, 0.16);
+}
+.tile-photo .plate b { display: block; font-family: var(--face-display); font-size: 19px; font-weight: 400; letter-spacing: -0.01em; }
+.tile-photo .plate span { display: block; margin-top: 3px; font-size: 13px; color: var(--fg-2); }
+
+.tile-warm { background: var(--surface-warm); border-color: color-mix(in oklab, var(--surface-warm), var(--fg) 12%); }
+.tile-warm p { color: var(--fg-2); }
+
+/* full-width closing tile: copy left, property visual right */
+.tile-split {
+  grid-column: span 6;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr);
+  gap: clamp(24px, 3.4vw, 48px);
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+.tile-split .split-copy {
+  padding: clamp(28px, 2.8vw, 42px);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.tile-split .split-visual { position: relative; align-self: stretch; min-height: 268px; }
+.tile-split .split-visual img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.units { display: flex; gap: 6px; margin-top: var(--space-2); }
+.units i {
+  flex: 1;
+  height: 34px;
+  border-radius: 6px;
+  background: color-mix(in oklab, var(--surface-warm), var(--surface) 30%);
+  border: 1px solid var(--border-soft);
+}
+.tile-warm .units i { background: color-mix(in oklab, var(--surface), var(--surface-warm) 25%); border-color: color-mix(in oklab, var(--surface-warm), var(--fg) 10%); }
+.units i:nth-child(2), .units i:nth-child(5) { background: color-mix(in oklab, var(--accent), var(--surface-warm) 22%); border-color: color-mix(in oklab, var(--accent), black 10%); }
+
+/* ---------- operators section ---------- */
+.operators { background: var(--surface-warm); }
+/* The warm band is lighter than --bg, so --muted and --meta lose contrast against it.
+   Darken both against the same tokens rather than introducing new hex values. */
+.operators .eyebrow { color: color-mix(in oklab, var(--meta), black 18%); }
+.operators .strip-label { color: color-mix(in oklab, var(--muted), black 18%); }
+.op-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: clamp(36px, 5vw, 72px);
+  align-items: center;
+}
+.op-photo { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--elev-raised); }
+.op-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.quote { margin-top: var(--space-8); }
+.quote blockquote {
+  margin: 0;
+  font-family: var(--face-display);
+  font-size: clamp(21px, 2.1vw, 27px);
+  line-height: 1.34;
+  letter-spacing: -0.012em;
+  color: var(--fg);
+}
+.quote figcaption { margin-top: var(--space-5); font-size: 14px; color: var(--fg-2); }
+.quote figcaption b { font-weight: 600; }
+.op-facts {
+  margin-top: var(--space-12);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: var(--space-6);
+  border-top: 1px solid color-mix(in oklab, var(--surface-warm), var(--fg) 14%);
+  padding-top: var(--space-8);
+}
+.op-facts h4 { font-family: var(--face-body); font-size: 13px; font-weight: 600; letter-spacing: 0.01em; margin: 0 0 5px; }
+.op-facts p { font-size: 14px; color: var(--fg-2); }
+
+/* ---------- pilot ---------- */
+.pilot-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: clamp(36px, 5vw, 72px);
+  align-items: start;
+}
+.pilot-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  padding: clamp(28px, 3vw, 42px);
+  box-shadow: var(--elev-raised);
+}
+.pilot-card .price {
+  font-family: var(--face-display);
+  font-size: clamp(38px, 4vw, 52px);
+  line-height: 1.05;
+  letter-spacing: -0.024em;
+}
+.pilot-card .price small { display: block; font-family: var(--face-body); font-size: 14px; font-weight: 500; letter-spacing: 0.01em; color: var(--muted); margin-top: 8px; }
+.pilot-list { margin: var(--space-8) 0 0; display: grid; gap: 13px; }
+.pilot-list li { display: grid; grid-template-columns: 20px 1fr; gap: 12px; align-items: start; font-size: 15.5px; color: var(--fg-2); }
+.pilot-list svg { color: var(--accent); margin-top: 4px; }
+.pilot-note { margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--border-soft); font-size: 13.5px; color: var(--muted); }
+.pilot-after { margin-top: var(--space-8); display: grid; gap: var(--space-6); }
+.pilot-after > div { padding-left: var(--space-5); border-left: 2px solid var(--border); }
+.pilot-after h4 { font-family: var(--face-display); font-weight: 400; font-size: 21px; letter-spacing: -0.01em; margin-bottom: 6px; }
+.pilot-after p { font-size: 15px; color: var(--fg-2); max-width: 42ch; }
+
+/* ---------- faq ---------- */
+.faq-grid { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
+.faq-list { border-top: 1px solid var(--border); }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-q {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  background: transparent;
+  border: 0;
+  text-align: left;
+  padding: 26px 0;
+  cursor: pointer;
+  font-family: var(--face-display);
+  font-size: clamp(19px, 1.7vw, 23px);
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+  color: var(--fg);
+  transition: color var(--motion-fast) var(--ease-standard);
+}
+.faq-q:hover { color: var(--meta); }
+.faq-sign { flex: none; width: 22px; height: 22px; position: relative; }
+.faq-sign::before, .faq-sign::after {
+  content: "";
+  position: absolute;
+  inset: 50% 0 auto 0;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--motion-base) var(--ease-standard), opacity var(--motion-base) var(--ease-standard);
+}
+.faq-sign::after { transform: rotate(90deg); }
+.faq-item[data-open="true"] .faq-sign::after { transform: rotate(90deg) scaleX(0); opacity: 0; }
+.faq-a { overflow: hidden; height: 0; transition: height var(--motion-base) var(--ease-standard); }
+.faq-a-inner { padding: 0 clamp(0px, 4vw, 56px) 28px 0; }
+.faq-a-inner p { color: var(--fg-2); max-width: 62ch; }
+.faq-a-inner p + p { margin-top: var(--space-4); }
+
+/* ---------- final cta ---------- */
+.final { position: relative; overflow: hidden; }
+.final-card {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--elev-raised);
+}
+.final-card > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* Fully opaque behind the copy column, then fades to reveal the photograph.
+   Keeps every text/background pair identical to the rest of the page. */
+.final-veil {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(97deg,
+    var(--bg) 0%,
+    var(--bg) 52%,
+    color-mix(in oklab, var(--bg), transparent 42%) 74%,
+    color-mix(in oklab, var(--bg), transparent 82%) 100%);
+}
+.final-body {
+  position: relative;
+  padding: clamp(40px, 6vw, 88px) clamp(24px, 5vw, 72px);
+  max-width: 600px;
+}
+.final-body h2 { max-width: 20ch; }
+.final-body p { margin-top: var(--space-6); color: var(--fg-2); max-width: 44ch; font-size: 18px; }
+.final-actions { margin-top: var(--space-12); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-6); }
+.final-meta { margin-top: var(--space-6); font-size: 13.5px; color: var(--muted); }
+
+/* ---------- footer ---------- */
+.footer { border-top: 1px solid var(--border); padding-block: 64px 40px; }
+.footer-top { display: grid; grid-template-columns: minmax(0, 1.4fr) repeat(3, minmax(0, 1fr)); gap: clamp(28px, 4vw, 56px); }
+.footer-blurb { font-size: 15px; color: var(--fg-2); max-width: 34ch; margin-top: var(--space-5); }
+.footer h5 { font-family: var(--face-body); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.09em; color: var(--muted); margin: 0 0 var(--space-5); }
+.footer-links { display: grid; gap: 11px; }
+.footer-links a { font-size: 15px; color: var(--fg-2); text-decoration: none; transition: color var(--motion-fast) var(--ease-standard); }
+.footer-links a:hover { color: var(--fg); }
+.footer-bottom {
+  margin-top: 56px;
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-5);
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* ---------- section headers ---------- */
+.sec-head { max-width: 62ch; }
+.sec-head .lead { margin-top: var(--space-6); }
+
+/* ---------- reveal motion ---------- */
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 620ms var(--ease-standard), transform 620ms var(--ease-standard);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+[data-reveal][data-delay="1"] { transition-delay: 70ms; }
+[data-reveal][data-delay="2"] { transition-delay: 140ms; }
+[data-reveal][data-delay="3"] { transition-delay: 210ms; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1023px) {
+  :root { --section-y: var(--section-y-tablet); --gutter: var(--container-gutter-tablet); }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero h1 { max-width: 18ch; }
+  .thread-photo { inset: 0 0 auto 0; height: 62%; }
+  .phone { margin-block: 36px; }
+  .nav-links { display: none; }
+  .nav-toggle { display: inline-flex; }
+  .nav-cta .btn-secondary { display: none; }
+  .step { grid-template-columns: 72px minmax(0, 1fr); }
+  .step-aside { grid-column: 2; border-left: 0; padding-left: 0; padding-top: var(--space-5); border-top: 1px solid var(--border-soft); }
+  .tile-wide, .tile-narrow, .tile-mid, .tile-photo { grid-column: span 3; }
+  .tile-split { grid-column: span 6; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); }
+  .tile-split .split-visual { min-height: 240px; }
+  .op-grid, .pilot-grid, .faq-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  /* Tablet: narrow the copy column and push the reveal further right. */
+  .final-body { max-width: 460px; }
+  .final-veil {
+    background: linear-gradient(97deg,
+      var(--bg) 0%,
+      var(--bg) 62%,
+      color-mix(in oklab, var(--bg), transparent 46%) 82%,
+      color-mix(in oklab, var(--bg), transparent 78%) 100%);
+  }
+}
+@media (max-width: 639px) {
+  :root { --section-y: var(--section-y-phone); --gutter: var(--container-gutter-phone); }
+  .hero { padding-top: 40px; }
+  .hero-actions { gap: var(--space-5); }
+  .hero-actions .btn { width: 100%; }
+  .hero-actions .btn-link { margin-inline: auto; }
+  .bento { grid-template-columns: 1fr; gap: var(--space-5); }
+  .tile-wide, .tile-narrow, .tile-mid, .tile-photo { grid-column: span 1; }
+  .tile-split { grid-column: span 1; grid-template-columns: 1fr; }
+  .tile-split .split-visual { min-height: 210px; order: -1; }
+  .step { grid-template-columns: 1fr; gap: var(--space-4); padding-block: 30px; }
+  .step-aside { grid-column: 1; }
+  .step-num { font-size: 34px; }
+  .footer-top { grid-template-columns: 1fr; }
+  .final-actions .btn { width: 100%; }
+  .strip-inner { gap: var(--space-6); }
+  /* Copy spans the full card width on phones, so the veil must clear top-down,
+     not left-right, or the text would sit on bare photography. */
+  .final-card { display: flex; flex-direction: column; }
+  .final-card > img { position: relative; inset: auto; height: 210px; }
+  .final-veil { display: none; }
+  .final-body { max-width: none; background: var(--bg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1; transform: none; transition: none; }
+  .bubble, .handoff { opacity: 1; transform: none; animation: none !important; }
+  .badge .pulse::after, .typing i { animation: none; }
+  .tile:hover { transform: none; }
+  .btn:active { transform: none; }
+  .faq-a { transition: none; }
+  * { scroll-behavior: auto !important; }
+}
+
+/* mobile nav panel */
+.nav-panel[data-open="true"] {
+  display: block;
+  position: fixed;
+  inset: 72px 0 auto 0;
+  z-index: 39;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--elev-raised);
+  padding: var(--space-6) var(--container-gutter-phone) var(--space-8);
+}
+.nav-panel .footer-links a { font-size: 18px; font-family: var(--face-display); }
+.nav-panel .btn { width: 100%; margin-top: var(--space-6); }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav" id="nav" data-od-id="site-nav">
+  <div class="container nav-inner">
+    <a class="wordmark" href="#top" data-od-id="nav-wordmark">
+      <svg class="mark" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 21c0-5.5 3.6-9.4 8.5-10.2C20 16.4 16.7 20 12 21Z" fill="currentColor" opacity=".38"/>
+        <path d="M12 21C12 14.4 8 10 3 9.2 3.6 15.9 7.1 20.2 12 21Z" fill="currentColor" opacity=".72"/>
+        <path d="M12 21V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M12 6.5c0-2 1.5-3.5 3.5-3.5C15.5 5 14 6.5 12 6.5Z" fill="currentColor"/>
+      </svg>
+      Stayvines
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#how">How it works</a>
+      <a href="#features">What it handles</a>
+      <a href="#operators">For operators</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#faq">Questions</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn btn-secondary" href="#pilot" data-od-id="nav-secondary-cta">See the pilot</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navPanel" data-od-id="nav-toggle">
+        Menu
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="nav-panel" id="navPanel" data-open="false">
+    <div class="footer-links">
+      <a href="#how">How it works</a>
+      <a href="#features">What it handles</a>
+      <a href="#operators">For operators</a>
+      <a href="#pilot">Pilot</a>
+      <a href="#faq">Questions</a>
+    </div>
+    <a class="btn btn-secondary" href="#pilot">See the pilot</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" data-od-id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <span class="badge" data-reveal data-od-id="hero-pilot-badge">
+            <span class="pulse" aria-hidden="true"></span>
+            Now piloting with select operators
+          </span>
+
+          <h1 class="display-1" data-reveal data-delay="1" data-od-id="hero-headline">
+            The quiet power behind <span class="ital">exceptional</span> stays.
+          </h1>
+
+          <p class="lead" data-reveal data-delay="2" data-od-id="hero-subtext">
+            Stayvines answers guest messages on WhatsApp all night, captures bookings, and wakes
+            your team only when a person is needed.
+          </p>
+
+          <div class="hero-actions" data-reveal data-delay="3">
+            <a class="btn btn-primary" href="#pilot" data-od-id="hero-primary-cta">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.3L3.5 20.4l1.5-4.5A8.4 8.4 0 1 1 20.5 11.6Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Join the pilot on WhatsApp
+            </a>
+            <a class="btn-link" href="#how" data-od-id="hero-tertiary-link">
+              See how a night shift runs
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h13m-5.5-5.5L18.5 12 12.5 17.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- WhatsApp conversation visual -->
+        <div class="thread-stage" data-reveal data-delay="2" data-od-id="hero-whatsapp-thread">
+          <div class="thread-photo" aria-hidden="true">
+            <img src="assets_hero-apartment.jpg" alt="" loading="eager" decoding="async" />
+          </div>
+
+          <div class="phone" role="img" aria-label="A WhatsApp conversation in which the Stayvines AI answers a guest at 1:42 in the morning, confirms a two-night stay, and then hands the thread to the human team for an early check-in request.">
+            <div class="phone-bar">
+              <span class="avatar" aria-hidden="true">A</span>
+              <span class="who">
+                <b>Adaeze O.</b>
+                <span>Guest inquiry &middot; WhatsApp</span>
+              </span>
+            </div>
+
+            <div class="phone-body" id="threadBody">
+              <div class="bubble guest" data-seq="1">
+                Hi, is the 2-bedroom in Lekki free this weekend? Coming in from Abuja.
+                <span class="stamp">01:42</span>
+              </div>
+              <div class="bubble ai" data-seq="2">
+                Good evening Adaeze. Yes, Fri 14 to Sun 16 is open at &#8358;145,000 per night. Parking and a backup inverter are included.
+                <span class="stamp">Stayvines &middot; 01:42</span>
+              </div>
+              <div class="bubble guest" data-seq="3">
+                Please hold it for 2 nights. Can I check in by 9am on Friday?
+                <span class="stamp">01:43</span>
+              </div>
+              <div class="bubble ai" data-seq="4">
+                Held. I have your two nights down and sent the payment link. A 9am arrival is before our standard 2pm, so I am passing this to the team now.
+                <span class="stamp">Stayvines &middot; 01:43</span>
+              </div>
+              <div class="handoff" data-seq="5">
+                <span class="dot" aria-hidden="true"></span>
+                Handed to Tobi on the operations team
+              </div>
+              <div class="bubble guest" data-seq="6" aria-hidden="true">
+                <span class="typing" aria-hidden="true"><i></i><i></i><i></i></span>
+              </div>
+            </div>
+          </div>
+
+          <p class="thread-caption">Sample conversation, written to show where the AI stops and a person takes over.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ OPERATOR STRIP ============ -->
+  <div class="strip" data-od-id="channel-strip">
+    <div class="container strip-inner">
+      <p class="strip-label" data-reveal>Works alongside the tools you already run your units on</p>
+      <ul class="strip-logos" data-reveal data-delay="1">
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="WhatsApp"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Airbnb"><path d="M12.001 18.275c-1.353-1.697-2.148-3.184-2.413-4.457-.263-1.027-.16-1.848.291-2.465.477-.71 1.188-1.056 2.121-1.056s1.643.345 2.12 1.063c.446.61.558 1.432.286 2.465-.291 1.298-1.085 2.785-2.412 4.458zm9.601 1.14c-.185 1.246-1.034 2.28-2.2 2.783-2.253.98-4.483-.583-6.392-2.704 3.157-3.951 3.74-7.028 2.385-9.018-.795-1.14-1.933-1.695-3.394-1.695-2.944 0-4.563 2.49-3.927 5.382.37 1.565 1.352 3.343 2.917 5.332-.98 1.085-1.91 1.856-2.732 2.333-.636.344-1.245.558-1.828.609-2.679.399-4.778-2.2-3.825-4.88.132-.345.395-.98.845-1.961l.025-.053c1.464-3.178 3.242-6.79 5.285-10.795l.053-.132.58-1.116c.45-.822.635-1.19 1.351-1.643.346-.21.77-.315 1.246-.315.954 0 1.698.558 2.016 1.007.158.239.345.557.582.953l.558 1.089.08.159c2.041 4.004 3.821 7.608 5.279 10.794l.026.025.533 1.22.318.764c.243.613.294 1.222.213 1.858zm1.22-2.39c-.186-.583-.505-1.271-.9-2.094v-.03c-1.889-4.006-3.642-7.608-5.307-10.844l-.111-.163C15.317 1.461 14.468 0 12.001 0c-2.44 0-3.476 1.695-4.535 3.898l-.081.16c-1.669 3.236-3.421 6.843-5.303 10.847v.053l-.559 1.22c-.21.504-.317.768-.345.847C-.172 20.74 2.611 24 5.98 24c.027 0 .132 0 .265-.027h.372c1.75-.213 3.554-1.325 5.384-3.317 1.829 1.989 3.635 3.104 5.382 3.317h.372c.133.027.239.027.265.027 3.37.003 6.152-3.261 4.802-6.975z"/></svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Booking.com"><path d="M24 0H0v24h24ZM8.575 6.563h2.658c2.108 0 3.473 1.15 3.473 2.898 0 1.15-.575 1.82-.91 2.108l-.287.263.335.192c.815.479 1.318 1.389 1.318 2.395 0 1.988-1.51 3.257-3.857 3.257H7.449V7.713c0-.623.503-1.126 1.126-1.15zm1.7 1.868c-.479.024-.694.264-.694.79v1.893h1.676c.958 0 1.294-.743 1.294-1.365 0-.815-.503-1.318-1.318-1.318zm-.096 4.36c-.407.071-.598.31-.598.79v2.251h1.868c.934 0 1.509-.55 1.509-1.533 0-.934-.599-1.509-1.51-1.509zm7.737 2.394c.743 0 1.341.599 1.341 1.342a1.34 1.34 0 0 1-1.341 1.341 1.355 1.355 0 0 1-1.341-1.341c0-.743.598-1.342 1.34-1.342z"/></svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Instagram"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.053 1.805.249 2.227.415.56.217.96.477 1.382.9.422.421.682.821.9 1.381.165.422.361 1.057.413 2.227.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.052 1.17-.248 1.805-.413 2.227-.218.56-.478.96-.9 1.382-.422.422-.822.682-1.382.9-.422.165-1.057.361-2.227.413-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.052-1.805-.248-2.227-.413a3.72 3.72 0 0 1-1.382-.9 3.72 3.72 0 0 1-.9-1.382c-.165-.422-.361-1.057-.413-2.227-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.052-1.17.248-1.805.413-2.227.218-.56.478-.96.9-1.382a3.72 3.72 0 0 1 1.382-.9c.422-.165 1.057-.361 2.227-.413C8.416 2.175 8.796 2.163 12 2.163Zm0-2.163C8.741 0 8.332.014 7.052.072 5.775.132 4.903.335 4.14.63a5.88 5.88 0 0 0-2.125 1.384A5.88 5.88 0 0 0 .63 4.14C.335 4.903.131 5.775.072 7.052.014 8.332 0 8.741 0 12s.014 3.668.072 4.948c.06 1.277.263 2.149.558 2.912a5.88 5.88 0 0 0 1.384 2.126 5.88 5.88 0 0 0 2.126 1.384c.763.295 1.635.499 2.912.558C8.332 23.986 8.741 24 12 24s3.668-.014 4.948-.072c1.277-.06 2.149-.263 2.912-.558a5.88 5.88 0 0 0 2.126-1.384 5.88 5.88 0 0 0 1.384-2.126c.295-.763.499-1.635.558-2.912.058-1.28.072-1.689.072-4.948s-.014-3.668-.072-4.948c-.06-1.277-.263-2.149-.558-2.912a5.88 5.88 0 0 0-1.384-2.126A5.88 5.88 0 0 0 19.86.63c-.763-.295-1.635-.498-2.912-.558C15.668.014 15.259 0 12 0Zm0 5.838a6.162 6.162 0 1 0 0 12.325 6.162 6.162 0 0 0 0-12.325ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881Z"/></svg>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="currentColor" role="img" aria-label="Google Sheets"><path d="M11.318 12.545H7.91v-1.909h3.41v1.91zM14.728 0v6h6l-6-6zm1.363 10.636h-3.41v1.91h3.41v-1.91zm0 3.273h-3.41v1.91h3.41v-1.91zM20.727 6.5v15.864c0 .904-.732 1.636-1.636 1.636H4.909a1.636 1.636 0 0 1-1.636-1.636V1.636C3.273.732 4.005 0 4.909 0h9.318v6.5h6.5zm-3.273 2.773H6.545v7.909h10.91v-7.91zm-6.136 4.636H7.91v1.91h3.41v-1.91z"/></svg>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ============ HOW IT WORKS ============ -->
+  <section id="how" data-od-id="how-it-works">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <h2 class="display-2">Your team, plus an AI that never sleeps.</h2>
+        <p class="lead">
+          Nobody gets replaced. The AI takes the 2am repetition, and your people
+          keep the judgement calls, the relationships, and the final word.
+        </p>
+      </div>
+
+      <div class="steps">
+        <article class="step" data-reveal data-od-id="step-guest-messages">
+          <p class="step-num" aria-hidden="true">01</p>
+          <div>
+            <h3 class="display-3">A guest messages your WhatsApp line</h3>
+            <p>
+              Same number on your listing, your Instagram bio, your flyer. No app to download,
+              no portal to log into, no new habit to teach anyone.
+            </p>
+          </div>
+          <div class="step-aside">
+            <b>What it reads</b>
+            Availability, nightly rates, house rules, minimum stays, and whatever else you
+            already keep in a spreadsheet.
+          </div>
+        </article>
+
+        <article class="step" data-reveal data-od-id="step-ai-responds">
+          <p class="step-num" aria-hidden="true">02</p>
+          <div>
+            <h3 class="display-3">Stayvines answers and captures the booking</h3>
+            <p>
+              It quotes real dates and real prices, holds the unit, sends the payment link,
+              and answers the twelfth question about the generator without a sigh.
+            </p>
+          </div>
+          <div class="step-aside">
+            <b>Always awake</b>
+            Overnight inquiries, public holidays, the hour your manager is stuck in
+            Third Mainland traffic.
+          </div>
+        </article>
+
+        <article class="step" data-reveal data-od-id="step-team-in-control">
+          <p class="step-num" aria-hidden="true">03</p>
+          <div>
+            <h3 class="display-3">Your team stays in control</h3>
+            <p>
+              Refunds, damage, early arrivals, anything unusual: the thread goes to a named
+              person with the full history attached. Your team can jump in at any point.
+            </p>
+          </div>
+          <div class="step-aside">
+            <b>You set the line</b>
+            Choose what the AI may decide alone, what needs a human, and which topics it
+            never touches.
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES BENTO ============ -->
+  <section id="features" data-od-id="features">
+    <div class="container">
+      <div class="sec-head" data-reveal>
+        <h2 class="display-2">What it handles, and what it hands over.</h2>
+        <p class="lead">
+          Five jobs that eat an operator's evening. The AI takes the first four,
+          and the fifth is the rule that keeps your team in charge of all of them.
+        </p>
+      </div>
+
+      <div class="bento">
+        <article class="tile tile-wide" data-reveal data-od-id="feature-guest-chat">
+          <span class="ico" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.3L4 20.3l1.5-4.4A8.4 8.4 0 1 1 21 11.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M9 11.5h6M9 14.5h3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            </svg>
+          </span>
+          <h3>Guest chat that runs through the night</h3>
+          <p>
+            Replies in seconds at 1am, on Sunday, during Sallah. It holds a natural back and forth
+            in English and Nigerian Pidgin, remembers what the guest already asked, and never
+            copy-pastes the same stiff paragraph twice.
+          </p>
+        </article>
+
+        <article class="tile tile-narrow tile-warm" data-reveal data-delay="1" data-od-id="feature-booking-capture">
+          <span class="ico" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <rect x="3.5" y="5" width="17" height="15.5" rx="2.4" stroke="currentColor" stroke-width="1.6"/>
+              <path d="M3.5 9.5h17M8 3.5v3M16 3.5v3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M9 14.5l2 2 4-4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <h3>Instant booking capture</h3>
+          <p>
+            Dates confirmed, unit held, payment link out, and the details written into your
+            calendar while the guest is still in the chat.
+          </p>
+        </article>
+
+        <article class="tile tile-photo" data-reveal data-delay="2" data-od-id="feature-checkin-support">
+          <img src="assets_checkin-detail.jpg" alt="Brass keys and a folded linen cloth on an apartment entry console in warm afternoon light." loading="lazy" decoding="async" />
+          <div class="plate">
+            <b>Check-in support</b>
+            <span>Gate code, directions, wifi, and the inverter switch, sent before anyone has to ask twice.</span>
+          </div>
+        </article>
+
+        <article class="tile tile-mid" data-reveal data-od-id="feature-human-handoff">
+          <span class="ico" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+              <path d="M9 8.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM2.8 20.5c0-3.1 2.8-5.2 6.2-5.2 1.2 0 2.4.3 3.4.8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+              <path d="M14.5 12.5h6.7m0 0-2.4-2.4m2.4 2.4-2.4 2.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M17.5 21a2.8 2.8 0 1 0 0-5.5 2.8 2.8 0 0 0 0 5.5Z" stroke="currentColor" stroke-width="1.6"/>
+            </svg>
+          </span>
+          <h3>Human handoff with the full thread attached</h3>
+          <p style="max-width:74ch">
+            When a guest is upset, a refund is on the table, or the request is genuinely unusual,
+            Stayvines stops talking and tags a named teammate. They open the chat already knowing
+            everything that was said, so nobody has to ask the guest to repeat themselves.
+          </p>
+        </article>
+
+        <article class="tile tile-split" data-reveal data-od-id="feature-multi-property">
+          <div class="split-copy">
+            <span class="ico" aria-hidden="true">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                <path d="M3.5 20.5V10L10 5l6.5 5v10.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M16.5 20.5h4V13l-4-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M8 20.5v-5h4v5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </span>
+            <h3>Every unit, one inbox</h3>
+            <p>
+              Whether you run three flats in Lekki or twenty-eight across Ikoyi, Yaba and Maitama,
+              each unit keeps its own rates, rules and lockbox notes. The AI never quotes the
+              wrong apartment.
+            </p>
+            <div class="units" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="split-visual">
+            <img src="assets_property-bedroom.jpg" alt="A serviced apartment bedroom in morning light with crisp white bedding and a pale oak headboard." loading="lazy" decoding="async" />
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOR OPERATORS ============ -->
+  <section id="operators" class="operators" data-od-id="for-operators">
+    <div class="container">
+      <div class="op-grid">
+        <div class="op-photo" data-reveal>
+          <img src="assets_operator-portrait.jpg" alt="A short-let property manager standing in a sunlit apartment doorway, checking a message on her phone." loading="lazy" decoding="async" />
+        </div>
+
+        <div data-reveal data-delay="1">
+          <p class="eyebrow">Built with Lagos and Abuja operators</p>
+          <h2 class="display-2">We are building this with the people already doing it.</h2>
+          <p class="lead">
+            Stayvines is being shaped with operators running short-lets and serviced apartments
+            across Lekki, Ikoyi, Yaba, Wuse and Maitama. Their inbox is the spec sheet.
+          </p>
+
+          <figure class="quote" data-od-id="operator-positioning">
+            <blockquote>
+              The overnight messages are the part no operator has solved. Your team is still the
+              reason guests come back. They should not be the ones answering the same three
+              questions at 2am.
+            </blockquote>
+            <figcaption>
+              This is the problem we are building against, in our own words.
+              <br />Operator quotes go here once the pilot cohort agrees to be named.
+            </figcaption>
+          </figure>
+
+          <div class="op-facts">
+            <div>
+              <h4>Who it fits</h4>
+              <p>Operators running 1 to 30 units who answer their own guest messages today.</p>
+            </div>
+            <div>
+              <h4>Who it does not fit</h4>
+              <p>Hotels with a full front desk and a property management system already in place.</p>
+            </div>
+            <div>
+              <h4>Where we are</h4>
+              <p>Lagos and Abuja first, because that is where we can sit in the room with you.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PILOT ============ -->
+  <section id="pilot" data-od-id="pilot">
+    <div class="container">
+      <div class="pilot-grid">
+        <div data-reveal>
+          <h2 class="display-2">The pilot, plainly.</h2>
+          <p class="lead">
+            We are taking a small group of operators through a supervised pilot so we get this
+            right before we put a price on it.
+          </p>
+
+          <div class="pilot-after">
+            <div>
+              <h4>Free while we are learning from you</h4>
+              <p>
+                No card, no contract, no notice period. If it is not earning its place in your
+                operation, tell us and we switch it off.
+              </p>
+            </div>
+            <div>
+              <h4>Pricing comes after the pilot</h4>
+              <p>
+                It will be a flat monthly fee per property, published openly. Pilot operators get
+                the first look and a say in where the line sits.
+              </p>
+            </div>
+            <div>
+              <h4>Your data stays yours</h4>
+              <p>
+                Guest conversations are used to serve your guests. Not sold, not shared with other
+                operators, exportable whenever you ask.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pilot-card" data-reveal data-delay="1" data-od-id="pilot-card">
+          <p class="eyebrow" style="margin-bottom:var(--space-4)">Pilot cohort</p>
+          <p class="price">
+            No fee
+            <small>While the pilot runs. Nothing to cancel later.</small>
+          </p>
+
+          <ul class="pilot-list">
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Setup on your existing WhatsApp line, done with you on a call</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Your rates, rules and check-in notes loaded for every unit</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>Handoff rules written with your team, not imposed on them</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>A weekly review of every conversation the AI got wrong</span>
+            </li>
+            <li>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4.5 12.5l4.5 4.5L19.5 6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <span>A direct line to the founders on WhatsApp, not a ticket queue</span>
+            </li>
+          </ul>
+
+          <p class="pilot-note">
+            We are onboarding a handful of operators at a time so each one gets real attention.
+            If the cohort is full we will tell you when the next one opens.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section id="faq" data-od-id="faq">
+    <div class="container">
+      <div class="faq-grid">
+        <div class="sec-head" data-reveal>
+          <h2 class="display-2">The questions operators actually ask.</h2>
+          <p class="lead" style="font-size:16.5px">
+            Mostly about staff, mistakes, and what happens when the network drops.
+          </p>
+        </div>
+
+        <div class="faq-list" data-reveal data-delay="1" data-od-id="faq-list">
+          <div class="faq-item" data-open="false">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-1" id="faq-q-1">
+              Is this going to replace my staff?
+              <span class="faq-sign" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a-1" role="region" aria-labelledby="faq-q-1">
+              <div class="faq-a-inner">
+                <p>
+                  No, and we would not build it if it did. Guests remember the person who fixed
+                  the AC at 8pm, not the one who confirmed a rate. Stayvines takes the repetitive
+                  overnight traffic off your team so their hours go into the work that keeps
+                  guests coming back.
+                </p>
+                <p>
+                  Most operators we speak to want their team doing more of the hosting and less
+                  of the typing. Your people are still the product.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" data-open="false">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-2" id="faq-q-2">
+              What happens when the AI gets something wrong?
+              <span class="faq-sign" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a-2" role="region" aria-labelledby="faq-q-2">
+              <div class="faq-a-inner">
+                <p>
+                  It is built to stop rather than guess. If it is not confident about a rate, a
+                  date, or a policy, it says it is checking with the team and hands the thread over
+                  instead of inventing an answer.
+                </p>
+                <p>
+                  Every conversation stays fully readable, and your team can take over mid-chat at
+                  any time. During the pilot we review the misses with you each week and correct them.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" data-open="false">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-3" id="faq-q-3">
+              Do I need a new phone number or a new app?
+              <span class="faq-sign" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a-3" role="region" aria-labelledby="faq-q-3">
+              <div class="faq-a-inner">
+                <p>
+                  No. Stayvines works on the WhatsApp number your guests already message, so your
+                  listings, flyers and Instagram bio stay exactly as they are. Your team keeps
+                  using WhatsApp the way they do today.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" data-open="false">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4" id="faq-q-4">
+              Can it handle money and payments?
+              <span class="faq-sign" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a-4" role="region" aria-labelledby="faq-q-4">
+              <div class="faq-a-inner">
+                <p>
+                  It sends your existing payment link and confirms once you mark the payment
+                  received. It does not hold funds, it does not process cards, and it never
+                  approves a refund or a discount on its own. Anything touching money beyond the
+                  standard rate goes to a human.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" data-open="false">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5" id="faq-q-5">
+              How long does setup take, and what do you need from me?
+              <span class="faq-sign" aria-hidden="true"></span>
+            </button>
+            <div class="faq-a" id="faq-a-5" role="region" aria-labelledby="faq-q-5">
+              <div class="faq-a-inner">
+                <p>
+                  One call to connect your WhatsApp line, then a working session where we load
+                  your units, rates, house rules and check-in details. It is one sitting, not a
+                  migration project.
+                </p>
+                <p>
+                  If your rates and rules live in a spreadsheet or a notes app, that is enough to
+                  start. We tidy it with you.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="final" data-od-id="final-cta">
+    <div class="container">
+      <div class="final-card" data-reveal>
+        <img src="assets_property-balcony.jpg" alt="A sunlit apartment balcony with rattan chairs overlooking green trees and low rooftops." loading="lazy" decoding="async" />
+        <div class="final-veil" aria-hidden="true"></div>
+
+        <div class="final-body">
+          <h2 class="display-2">Let your team sleep. The messages still get answered.</h2>
+          <p>
+            Send us a message and tell us how many units you run. If the current cohort fits,
+            we will get you live this week.
+          </p>
+
+          <div class="final-actions">
+            <a class="btn btn-primary" href="https://wa.me/2348000000000?text=Hi%20Stayvines%2C%20I%20run%20short-lets%20and%20I%27d%20like%20to%20join%20the%20pilot." data-od-id="final-primary-cta">
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M20.5 11.6a8.4 8.4 0 0 1-12.4 7.3L3.5 20.4l1.5-4.5A8.4 8.4 0 1 1 20.5 11.6Z" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Join the pilot on WhatsApp
+            </a>
+            <a class="btn-link" href="mailto:hello@stayvines.com">
+              Or email hello@stayvines.com
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M5 12h13m-5.5-5.5L18.5 12 12.5 17.5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+          </div>
+
+          <p class="final-meta">Lagos and Abuja operators, 1 to 30 units. We reply within a working day.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer" data-od-id="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a class="wordmark" href="#top">
+          <svg class="mark" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 21c0-5.5 3.6-9.4 8.5-10.2C20 16.4 16.7 20 12 21Z" fill="currentColor" opacity=".38"/>
+            <path d="M12 21C12 14.4 8 10 3 9.2 3.6 15.9 7.1 20.2 12 21Z" fill="currentColor" opacity=".72"/>
+            <path d="M12 21V6.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+            <path d="M12 6.5c0-2 1.5-3.5 3.5-3.5C15.5 5 14 6.5 12 6.5Z" fill="currentColor"/>
+          </svg>
+          Stayvines
+        </a>
+        <p class="footer-blurb">
+          An AI concierge for short-let and serviced-apartment operators. Your team, plus an
+          AI that never sleeps.
+        </p>
+      </div>
+
+      <div>
+        <h5>Product</h5>
+        <div class="footer-links">
+          <a href="#how">How it works</a>
+          <a href="#features">What it handles</a>
+          <a href="#operators">For operators</a>
+          <a href="#pilot">Pilot</a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Company</h5>
+        <div class="footer-links">
+          <a href="#faq">Questions</a>
+          <a href="mailto:hello@stayvines.com">hello@stayvines.com</a>
+          <a href="https://wa.me/2348000000000">WhatsApp us</a>
+        </div>
+      </div>
+
+      <div>
+        <h5>Coverage</h5>
+        <div class="footer-links">
+          <a href="#operators">Lagos</a>
+          <a href="#operators">Abuja</a>
+          <a href="#pilot">Request another city</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Stayvines. Built in Lagos.</span>
+      <span>Guest conversations belong to the operator, always.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  /* ---- sticky nav hairline ---- */
+  var nav = document.getElementById("nav");
+  var sentinel = document.createElement("div");
+  sentinel.style.cssText = "position:absolute;top:0;left:0;width:1px;height:1px;";
+  document.body.prepend(sentinel);
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      nav.dataset.stuck = String(!entries[0].isIntersecting);
+    }, { threshold: 0 }).observe(sentinel);
+  }
+
+  /* ---- mobile nav ---- */
+  var toggle = document.getElementById("navToggle");
+  var panel = document.getElementById("navPanel");
+  function closePanel() {
+    panel.dataset.open = "false";
+    toggle.setAttribute("aria-expanded", "false");
+  }
+  toggle.addEventListener("click", function () {
+    var open = panel.dataset.open === "true";
+    panel.dataset.open = String(!open);
+    toggle.setAttribute("aria-expanded", String(!open));
+  });
+  panel.addEventListener("click", function (e) {
+    if (e.target.closest("a")) closePanel();
+  });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closePanel();
+  });
+
+  /* ---- scroll reveal: confirms hierarchy as sections enter, never gates content ---- */
+  var revealables = document.querySelectorAll("[data-reveal]");
+  if (reduce.matches || !("IntersectionObserver" in window)) {
+    revealables.forEach(function (el) { el.classList.add("is-in"); });
+  } else {
+    var revealObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-in");
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    revealables.forEach(function (el) { revealObs.observe(el); });
+  }
+
+  /* ---- hero thread: staged replay so the handoff story reads in sequence ---- */
+  var thread = document.getElementById("threadBody");
+  var steps = thread ? Array.prototype.slice.call(thread.querySelectorAll("[data-seq]")) : [];
+  var timers = [];
+  function playThread() {
+    steps.forEach(function (el, i) {
+      timers.push(window.setTimeout(function () {
+        el.classList.add("in");
+      }, 260 + i * 620));
+    });
+  }
+  if (steps.length) {
+    if (reduce.matches) {
+      steps.forEach(function (el) { el.classList.add("in"); });
+    } else if ("IntersectionObserver" in window) {
+      var threadObs = new IntersectionObserver(function (entries) {
+        if (entries[0].isIntersecting) {
+          playThread();
+          threadObs.disconnect();
+        }
+      }, { threshold: 0.35 });
+      threadObs.observe(thread);
+    } else {
+      playThread();
+    }
+  }
+  window.addEventListener("pagehide", function () {
+    timers.forEach(window.clearTimeout);
+  });
+
+  /* ---- FAQ accordion: height animated so the panel does not jump ---- */
+  var items = document.querySelectorAll(".faq-item");
+  items.forEach(function (item) {
+    var btn = item.querySelector(".faq-q");
+    var panelEl = item.querySelector(".faq-a");
+    var inner = item.querySelector(".faq-a-inner");
+
+    btn.addEventListener("click", function () {
+      var isOpen = item.dataset.open === "true";
+
+      items.forEach(function (other) {
+        if (other === item || other.dataset.open !== "true") return;
+        other.dataset.open = "false";
+        other.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+        other.querySelector(".faq-a").style.height = "0px";
+      });
+
+      item.dataset.open = String(!isOpen);
+      btn.setAttribute("aria-expanded", String(!isOpen));
+      panelEl.style.height = isOpen ? "0px" : inner.offsetHeight + "px";
+    });
+  });
+
+  window.addEventListener("resize", function () {
+    items.forEach(function (item) {
+      if (item.dataset.open !== "true") return;
+      var panelEl = item.querySelector(".faq-a");
+      panelEl.style.height = item.querySelector(".faq-a-inner").offsetHeight + "px";
+    });
+  });
+})();
+</script>
+</body>
+</html>
