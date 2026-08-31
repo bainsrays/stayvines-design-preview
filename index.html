@@ -28,8 +28,8 @@
   --border-soft: #eee4d7;
   --accent: #9b5b32;
   --accent-on: #ffffff;
-  --accent-hover: color-mix(in oklab, var(--accent), black 8%);
-  --accent-active: color-mix(in oklab, var(--accent), black 14%);
+  --accent-hover: #8f542e;
+  --accent-active: #854e2b;
   --success: #4f8a4f;
   --warn: #c9822f;
   --danger: #b33a3a;
@@ -212,6 +212,7 @@ section { padding-block: var(--section-y); }
   position: sticky;
   top: 0;
   z-index: 40;
+  background: rgba(251, 246, 238, 0.88);
   background: color-mix(in oklab, var(--bg), transparent 12%);
   backdrop-filter: blur(14px) saturate(140%);
   -webkit-backdrop-filter: blur(14px) saturate(140%);
@@ -221,6 +222,7 @@ section { padding-block: var(--section-y); }
 }
 .nav[data-stuck="true"] {
   border-bottom-color: var(--border-soft);
+  background: rgba(251, 246, 238, 0.96);
   background: color-mix(in oklab, var(--bg), transparent 4%);
 }
 .nav-inner {
@@ -419,6 +421,7 @@ section { padding-block: var(--section-y); }
 }
 .bubble.ai {
   align-self: flex-end;
+  background: #f4e9d8;
   background: color-mix(in oklab, var(--surface-warm), var(--bg) 30%);
   border: 1px solid var(--border);
   border-bottom-right-radius: 5px;
@@ -550,6 +553,7 @@ section { padding-block: var(--section-y); }
 .tile-photo .plate {
   position: absolute;
   inset: auto 16px 16px 16px;
+  background: rgba(255, 253, 248, 0.92);
   background: color-mix(in oklab, var(--surface), transparent 8%);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -561,7 +565,8 @@ section { padding-block: var(--section-y); }
 .tile-photo .plate b { display: block; font-family: var(--face-display); font-size: 19px; font-weight: 400; letter-spacing: -0.01em; }
 .tile-photo .plate span { display: block; margin-top: 3px; font-size: 13px; color: var(--fg-2); }
 
-.tile-warm { background: var(--surface-warm); border-color: color-mix(in oklab, var(--surface-warm), var(--fg) 12%); }
+.tile-warm { background: var(--surface-warm); border-color: #d8cbb9;
+ border-color: color-mix(in oklab, var(--surface-warm), var(--fg) 12%); }
 .tile-warm p { color: var(--fg-2); }
 
 /* full-width closing tile: copy left, property visual right */
@@ -588,18 +593,25 @@ section { padding-block: var(--section-y); }
   flex: 1;
   height: 34px;
   border-radius: 6px;
+  background: #f5ebdb;
   background: color-mix(in oklab, var(--surface-warm), var(--surface) 30%);
   border: 1px solid var(--border-soft);
 }
-.tile-warm .units i { background: color-mix(in oklab, var(--surface), var(--surface-warm) 25%); border-color: color-mix(in oklab, var(--surface-warm), var(--fg) 10%); }
-.units i:nth-child(2), .units i:nth-child(5) { background: color-mix(in oklab, var(--accent), var(--surface-warm) 22%); border-color: color-mix(in oklab, var(--accent), black 10%); }
+.tile-warm .units i { background: #fcf6ee;
+ background: color-mix(in oklab, var(--surface), var(--surface-warm) 25%); border-color: #dccfbc;
+ border-color: color-mix(in oklab, var(--surface-warm), var(--fg) 10%); }
+.units i:nth-child(2), .units i:nth-child(5) { background: #ae7955;
+ background: color-mix(in oklab, var(--accent), var(--surface-warm) 22%); border-color: #8c522d;
+ border-color: color-mix(in oklab, var(--accent), black 10%); }
 
 /* ---------- operators section ---------- */
 .operators { background: var(--surface-warm); }
 /* The warm band is lighter than --bg, so --muted and --meta lose contrast against it.
    Darken both against the same tokens rather than introducing new hex values. */
-.operators .eyebrow { color: color-mix(in oklab, var(--meta), black 18%); }
-.operators .strip-label { color: color-mix(in oklab, var(--muted), black 18%); }
+.operators .eyebrow { color: #7f4b29;
+ color: color-mix(in oklab, var(--meta), black 18%); }
+.operators .strip-label { color: #645951;
+ color: color-mix(in oklab, var(--muted), black 18%); }
 .op-grid {
   display: grid;
   grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
@@ -624,6 +636,7 @@ section { padding-block: var(--section-y); }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: var(--space-6);
+  border-top: 1px solid #d4c7b5;
   border-top: 1px solid color-mix(in oklab, var(--surface-warm), var(--fg) 14%);
   padding-top: var(--space-8);
 }
@@ -714,6 +727,7 @@ section { padding-block: var(--section-y); }
 .final-veil {
   position: absolute;
   inset: 0;
+  background: linear-gradient(97deg, var(--bg) 0%, var(--bg) 52%, rgba(251, 246, 238, 0.58) 74%, rgba(251, 246, 238, 0.18) 100%);
   background: linear-gradient(97deg,
     var(--bg) 0%,
     var(--bg) 52%,
@@ -785,6 +799,7 @@ section { padding-block: var(--section-y); }
   /* Tablet: narrow the copy column and push the reveal further right. */
   .final-body { max-width: 460px; }
   .final-veil {
+    background: linear-gradient(97deg, var(--bg) 0%, var(--bg) 62%, rgba(251, 246, 238, 0.54) 82%, rgba(251, 246, 238, 0.22) 100%);
     background: linear-gradient(97deg,
       var(--bg) 0%,
       var(--bg) 62%,
